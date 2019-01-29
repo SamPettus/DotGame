@@ -8,7 +8,7 @@ pygame.init()
 white = [255,255,255] #Creating Const Color Values for ease of use
 red = [255,0,0]
 blue = [0,255,0]
-test = Population(30) # Creates a population of 30
+test = Population(100) # Creates a population of 30
 screen = pygame.display.set_mode((800,800))
 def main():
 	os.environ['SDL_VIDEO_CENTERED'] = '1'
@@ -21,10 +21,15 @@ def main():
 		drawPopulation(test)#Draws all the dots in the population
 		test.movePopulation()#updates all the dots position vector
 		pygame.display.update()
-		pygame.time.delay(140)
+		pygame.time.delay(40)
 		#Lets you quit
 		if test.allDotsDead():#if all the dots in the population are dead the game will exit
-			run = False
+			print("Calc Fitness")
+			test.calcFitness()
+			print("Natural Selection")
+			test.naturalSelection()
+			print("mutate")
+			test.mutate()
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				run = False
@@ -37,7 +42,7 @@ def main():
 
 def drawDot(w): #Draws the Dot
 	z = w.getPos()
-	pygame.draw.circle(screen, blue , (int(z[0]),int(z[1])), 3, 0)
+	pygame.draw.circle(screen, blue , (int(z[0]),int(z[1])), 4, 0)
 def drawPopulation(x): #Draws each dot in the population using the above function
 	for i in range (0,x.getSize()):
 		drawDot(x.getDot(i))
