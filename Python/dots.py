@@ -25,7 +25,9 @@ class Dot:
 		accx = self.acc[0]
 		accy = self.acc[1]
 		self.vel[0] = self.vel[0] + accx
+		print(self.vel[0])
 		self.vel[1] = self.vel[1] + accy
+		print(self.vel[1])
 		if(self.vel[0]>1):
 			self.vel[0] = 1
 		if(self.vel[0]<-1):

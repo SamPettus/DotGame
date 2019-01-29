@@ -13,14 +13,14 @@ class Brain:
 		for i in range(0,self.dirSize):
 			randX = random.random()
 			if(randX>.5):
-				x = random.random()
+				x = random.random() * 5
 			else:
-				x =-1.0 * random.random()
+				x =-1.0 * random.random() * 5
 			randY = random.random()
 			if(randY>.5):
-				y= random.random()
+				y= random.random() * 5
 			else:
-				y = -1.0 * random.random()
+				y = -1.0 * random.random() * 5
 			self.direction.append([x,y])
 	def getDirection(self):
 		return self.direction

@@ -13,18 +13,20 @@ def main():
 	os.environ['SDL_VIDEO_CENTERED'] = '1'
 	screen.fill(white)
 	pygame.display.update()
-	generatePopulation(3)
+	generatePopulation(1)
 	run = True
 	while run:
 		screen.fill(white)
 		pygame.draw.circle(screen, red, (400,40), 10,0)
-		for i in range(0,3):
+		for i in range(0,1):
 			drawDot(Population[i])
-		for i in range(0,3):
+		for i in range(0,1):
 			Population[i].move()
 		pygame.display.update()
-		pygame.time.delay(180)
+		pygame.time.delay(140)
 		#Lets you quit
+		if(Population[0].dead):
+			run = False
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				run = False
