@@ -8,19 +8,19 @@ class Brain:
 		self.randomize()
 
 
-	def randomize(self):
+	def randomize(self): #Creates an array of vectors from [-1 to 1, -1 to 1]
 		random.seed()
 		for i in range(0,self.dirSize):
 			randX = random.random()
 			if(randX>.5):
-				x = random.random() * 5
+				x = random.random() * 7
 			else:
-				x =-1.0 * random.random() * 5
+				x =-1.0 * random.random() * 7
 			randY = random.random()
 			if(randY>.5):
-				y= random.random() * 5
+				y= random.random() * 7
 			else:
-				y = -1.0 * random.random() * 5
+				y = -1.0 * random.random() * 7
 			self.direction.append([x,y])
 	def getDirection(self):
 		return self.direction
@@ -28,6 +28,3 @@ class Brain:
 		return self.step 
 	def getdirSize(self):
 		return self.dirSize
-	def printDirection(self):
-		for i in range(0, self.dirSize):
-			print(self.direction[i])
